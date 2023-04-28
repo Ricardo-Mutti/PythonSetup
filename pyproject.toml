@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "PythonSetup"
-version = "0.1.0"
+version = "0.0.1"
 description = "Messenger of the gods"
 authors = ["PythonSetup"]
 readme = "README.md"
@@ -52,6 +52,7 @@ pretty = true
 
 # TESTING TOOLS ########################################################################################################
 
+
 [tool.poetry.group.test.dependencies]
 respx = "^0.20.1"
 pytest-asyncio = "^0.21.0"
@@ -70,12 +71,14 @@ exclude_lines = [
 
 # DOCS TOOLS ###########################################################################################################
 
+
 [tool.poetry.group.docs.dependencies]
 mkdocs = "^1.4.2"
 mkdocs-material = "^9.1.6"
 mkdocstrings = {extras = ["python"], version = "^0.21.2"}
 
 # RELEASE TOOLS ########################################################################################################
+
 
 [tool.poetry.group.semver.dependencies]
 python-semantic-release = "^7.32.2"
