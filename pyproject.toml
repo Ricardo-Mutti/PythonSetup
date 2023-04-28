@@ -1,0 +1,93 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "PythonSetup"
+version = "0.1.0"
+description = "Messenger of the gods"
+authors = ["PythonSetup"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+# LINT TOOLS ###########################################################################################################
+[tool.poetry.group.lint.dependencies]
+isort = "^5.12.0"
+black = "^23.3.0"
+flake8 = "^6.0.0"
+mypy = "^1.2.0"
+
+[tool.black]
+skip-string-normalization = true
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+# 3rd party import
+ignore_missing_imports = true
+# dynamic typing
+disallow_any_unimported = true
+disallow_any_expr = false
+disallow_any_decorated = false
+disallow_any_explicit = true
+disallow_any_generics = false
+disallow_subclassing_any = true
+# platform
+python_version = "3.11"
+# untyped
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+disallow_untyped_decorators = true
+# None and Optional
+no_implicit_optional = true
+# Warnings
+warn_return_any = false
+warn_unreachable = true
+# Misc
+pretty = true
+
+# TESTING TOOLS ########################################################################################################
+
+[tool.poetry.group.test.dependencies]
+respx = "^0.20.1"
+pytest-asyncio = "^0.21.0"
+trio = "^0.22.0"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-p no:cacheprovider" # deactivating pytest caching.
+
+[tool.coverage.report]
+exclude_lines = [
+    'if __name__ == "__main__":',
+    'def __repr__',
+    'raise NotImplementedError'
+]
+
+# DOCS TOOLS ###########################################################################################################
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "^1.4.2"
+mkdocs-material = "^9.1.6"
+mkdocstrings = {extras = ["python"], version = "^0.21.2"}
+
+# RELEASE TOOLS ########################################################################################################
+
+[tool.poetry.group.semver.dependencies]
+python-semantic-release = "^7.32.2"
+
+[tool.semantic_release]
+branch = "main"
+commit_message = "{version} [skip ci]" # skip triggering ci pipelines for version commits
+version_variable = "src/hermes/__init__.py:__version__"
+version_toml = "pyproject.toml:tool.poetry.version"
+version_source = "tag"
+commit_version_number = true # required for version_source = "tag"
+tag_commit = true
+upload_to_pypi = false
+upload_to_release = false
+hvcs = "github" # gitlab is also supported

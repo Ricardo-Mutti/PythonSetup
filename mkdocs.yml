@@ -1,0 +1,25 @@
+site_name: PythonSetup
+
+theme:
+  name: material
+  palette:
+    scheme: slate
+
+plugins:
+- search:
+- mkdocstrings:
+    handlers:
+      python:
+        paths: [src]
+
+nav:
+  - Index Page: index.md
+#  - Tutorials: tutorials.md
+#  - How-To-Guides: how-to-guides.md
+#  - Reference: reference.md
+#  - Explanation: explanation.md
+
+repo_url: https://github.com/Ricardo-Mutti/PythonSetup
+
+# to navigate with `/site` content correctly
+use_directory_urls: false
