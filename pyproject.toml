@@ -83,7 +83,7 @@ python-semantic-release = "^7.32.2"
 [tool.semantic_release]
 branch = "main"
 commit_message = "{version} [skip ci]" # skip triggering ci pipelines for version commits
-version_variable = "src/hermes/__init__.py:__version__"
+version_variable = "src/pythonsetup/__init__.py:__version__"
 version_toml = "pyproject.toml:tool.poetry.version"
 version_source = "tag"
 commit_version_number = true # required for version_source = "tag"
